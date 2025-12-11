@@ -1,0 +1,23 @@
+2025-12-11 12:37:06,174 | INFO | main | Жүйе іске қосылды.
+2025-12-11 12:38:39,652 | INFO | models | Сома орнатылды: 5000000.0
+2025-12-11 12:38:39,653 | INFO | models | Жаңа транзакция құрылды: Transaction(id=None, amount=5000000.0, currency=KZT, payer=Daryn, payee=Aldik, time=2025-12-11 12:38:39.652725)
+2025-12-11 12:42:26,141 | INFO | _internal | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-11 12:42:26,151 | INFO | _internal | [33mPress CTRL+C to quit[0m
+2025-12-11 12:42:26,163 | INFO | _internal |  * Restarting with stat
+2025-12-11 12:42:27,868 | WARNING | _internal |  * Debugger is active!
+2025-12-11 12:42:27,913 | INFO | _internal |  * Debugger PIN: 377-716-628
+2025-12-11 12:43:13,901 | INFO | _internal | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-11 12:43:13,902 | INFO | _internal | [33mPress CTRL+C to quit[0m
+2025-12-11 12:43:13,910 | INFO | _internal |  * Restarting with stat
+2025-12-11 12:43:16,963 | WARNING | _internal |  * Debugger is active!
+2025-12-11 12:43:17,011 | INFO | _internal |  * Debugger PIN: 377-716-628
+2025-12-11 12:44:09,055 | INFO | _internal | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-11 12:44:09,056 | INFO | _internal | [33mPress CTRL+C to quit[0m
+2025-12-11 12:44:09,064 | INFO | _internal |  * Restarting with stat
+2025-12-11 12:44:10,495 | WARNING | _internal |  * Debugger is active!
+2025-12-11 12:44:10,531 | INFO | _internal |  * Debugger PIN: 377-716-628
+2025-12-11 12:46:31,835 | INFO | _internal | 127.0.0.1 - - [11/Dec/2025 12:46:31] "[31m[1mGET / HTTP/1.1[0m" 400 -
+2025-12-11 12:46:32,007 | INFO | _internal | 127.0.0.1 - - [11/Dec/2025 12:46:32] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 400 -
