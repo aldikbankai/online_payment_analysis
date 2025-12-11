@@ -1,109 +1,40 @@
-#Онлайн төлемдерді бақылау және талдау жүйесі
+Онлайн төлемдерді талдау жүйесі
+Бұл жоба онлайн төлемдерді қабылдау, сақтау және оларды талдау үшін жасалған Python жобасы. Жүйе транзакцияларды базаға енгізеді, статистика жасайды және күдікті төлемдерді анықтайды.
 
-##Online Payment Analysis Platform
-Бұл жоба онлайн төлемдерді сақтау, талдау, күдікті транзакцияларды (fraud) анықтау және API арқылы жұмыс істеу үшін жазылған оқу жобасы.
-Python, OOP, SQLite, Flask, логтау, модульдік тесттер, Git және CI/CD толық қолданылған.
+Мүмкіндіктер
+Транзакцияларды енгізу (CLI және API арқылы)
+SQLite деректер базасына сақтау
+Валюта бойынша жалпы соманы есептеу
+Күдікті төлемдерді автоматты анықтау
+REST API арқылы сыртқы жүйелермен жұмыс
+Лог жүргізу және модульдік архитектура
 
-Мүмкіндіктері
-1) Транзакцияларды енгізу
-– қолмен (main.py)
-– REST API арқылы (api.py)
+Қолданылған технологиялар
+Python, Flask, SQLite, PyTest, logging
 
-2) SQLite базаға сақтау
-Database класы арқылы транзакциялар автоматты түрде базаға жазылады.
+Орнату
+pip install -r requirements.txt
 
-3) Аналитика
-– Жалпы көлемді есептеу (TotalVolumeAnalyzer)
-– Күдікті транзакцияларды анықтау (FraudDetectorAnalyzer)
+CLI режимін іске қосу
+python main.py
 
-4) Логтау
-Барлық әрекет logs/app.log ішінде сақталады.
+API іске қосу
+python api.py
 
-5) Unit тесттер (pytest)
-– Транзакция моделі
-– Fraud анализаторы
-– Деректер базасы
-
-6) Git тармақтары
-main — тұрақты код
-dev — жаңа мүмкіндіктер
-
-7) CI/CD (GitHub Actions)
-PR және push кезінде тесттер автоматты жүреді.
-
-
-##Жоба құрылымы
-online_payment_analysis/
-│
-├── analysis/
-│   ├── analytics.py          # Аналитика (Fraud, Volume)
-│
-├── api/
-│   └── api.py                # Flask REST API
-│
-├── logs/
-│   ├── app.log               # Логтар
-│   └── logger_config.py      # Лог баптауы
-│
-├── models/
-│   ├── db.py                 # SQLite база
-│   └── models.py             # Transaction, User
-│
-├── tests/
-│   ├── test_transaction.py
-│   ├── test_fraud.py
-│   └── test_db.py
-│
-├── utils/
-│   └── utils.py              # Тестке арналған генератор
-│
-├── main.py                   # Қолмен енгізу жүйесі
-├── README.md
-├── .gitignore
-└── payments.db (git-те салынбайды)
-
-
-
-##API қолдану
-
-API серверді іске қосу:
-python api/api.py
-
-1) Транзакция қосу
-POST /add
-{
-  "amount": 50000,
-  "currency": "KZT",
-  "payer": "Aigerim",
-  "payee": "Market"
-}
-
-2) Барлық транзакциялар
-GET /transactions
-
-3) Жалпы статистика
-GET /stats
-
-4) Күдікті транзакциялар
-GET /suspects
+API бағыттары
+POST /add – транзакция қосу
+GET /transactions – барлық транзакциялар
+GET /stats – валюта бойынша статистика
+GET /suspects – күдікті төлемдер
 
 Тесттерді іске қосу
-pytest -v
+pytest
 
-Тест модульдері:
-test_transaction.py
-test_fraud.py
-test_db.py
-
-
-##Пайдаланылған тақырыптар
-Класс, инкапсуляция
-@property, @setter
-Арнайы әдістер (__repr__, __eq__)
-Мұрагерлік және полиморфизм
-SQLite database
-Логтау (logging)
-Flask API
-Модульдік тест (pytest)
-Git branch, PR, merge
-CI/CD (GitHub Actions)
+Құрылымы
+analysis/ – аналитика модульдері
+models/ – Transaction, User, Database
+tests/ – тесттер
+logs/ – логтар
+utils.py – тест деректер генерациясы
+api.py – REST API
+main.py – CLI интерфейсі
