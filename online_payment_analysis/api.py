@@ -7,10 +7,10 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Валюталар тізімі
+# Валюта тізімі
 VALID_CURRENCIES = ["KZT", "USD", "EUR", "RUB", "GBP", "JPY"]
 
-# Шектер (FraudAnalyzer үшін)
+# Fraud тексеру шектері
 THRESHOLDS = {
     "KZT": 500000,
     "USD": 1000,
@@ -19,6 +19,21 @@ THRESHOLDS = {
     "GBP": 800,
     "JPY": 150000
 }
+
+# ---------------------------- API ROOT ----------------------------
+@app.route("/")
+def home():
+    return {
+        "status": "OK",
+        "message": "Online Payment API is running",
+        "routes": [
+            "/add  (POST)",
+            "/transactions  (GET)",
+            "/stats  (GET)",
+            "/suspects  (GET)"
+        ]
+    }
+
 
 # ---------------------------- API ҚАТЕ ӨҢДЕУ ----------------------------
 @app.errorhandler(Exception)
@@ -51,9 +66,10 @@ def add_transaction():
     if not payer.isalpha() or not payee.isalpha():
         return jsonify({"error": "payer/payee тек әріп болуы керек"}), 400
 
+    # Транзакция объект
     tx = Transaction(amount, currency, payer, payee, datetime.now())
 
-    # Базаға жазу
+    # БД-ға жазу
     with Database("payments.db") as db:
         db.create_tables()
         db.insert_transaction(tx)
@@ -69,7 +85,7 @@ def get_all():
     return jsonify(rows)
 
 
-# ---------------------------- 3) Статистика ----------------------------
+# ---------------------------- 3) Жалпы статистика ----------------------------
 @app.route("/stats", methods=["GET"])
 def stats():
     with Database("payments.db") as db:
