@@ -1,0 +1,6 @@
+2025-12-11 10:08:29,762 | INFO | main | Жүйе іске қосылды.
+2025-12-11 10:08:58,678 | INFO | models | Сома орнатылды: 5000.0
+2025-12-11 10:08:58,683 | INFO | models | Жаңа транзакция құрылды: Transaction(id=None, amount=5000.0, currency=KZT, payer=Aldiyar, payee=Ariana, time=2025-12-11 10:08:58.678840)
+2025-12-11 10:28:58,223 | INFO | main | Жүйе іске қосылды.
+2025-12-11 10:29:47,908 | INFO | models | Сома орнатылды: 20000.0
+2025-12-11 10:29:47,909 | INFO | models | Жаңа транзакция құрылды: Transaction(id=None, amount=20000.0, currency=USD, payer=Olzhas, payee=Market, time=2025-12-11 10:29:47.908582)
